@@ -23,15 +23,16 @@ module.exports.registerCaptain = async (req,res,next) =>{
         firstname: fullname.firstname,
         lastname: fullname.lastname,
         email,
-        password:hashPassword,
+        password: hashPassword,
         color: vehicle.color,
         plate: vehicle.plate,
         capacity: vehicle.capacity,
-        vehicleType : vehicle.vehicleType
-    }); 
+        vehicleType: vehicle.vehicleType
+    });
 
-    const token = captain.generateAuthToken(); 
-    res.status(201).json({token, captain});
+    const token = captain.generateAuthToken();
+
+    res.status(201).json({ token, captain });
 }
 
 module.exports.loginCaptain=async(req,res,next)=>{
